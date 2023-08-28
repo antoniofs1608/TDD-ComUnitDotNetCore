@@ -40,7 +40,7 @@ namespace WebCoreTDD.Tests
             var resultado = Fibonacci.ObterElemento(9);
             Assert.AreEqual(resultado, 34, "Valor náo é 34.");
             Assert.IsTrue(resultado > 20);
-            Assert.IsFalse(resultado > 20);
+            //Assert.IsFalse(resultado > 20);
         }
     }
 
