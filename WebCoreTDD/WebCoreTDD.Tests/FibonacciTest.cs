@@ -17,16 +17,39 @@ namespace WebCoreTDD.Tests
         public void PrimeiroElementoDeveSerZero()
         {
             var resultado = Fibonacci.ObterElemento(0);
-            Assert.AreEqual(resultado, 0, "Valor não é zero");
+            Assert.AreEqual(resultado, 0, "Valor náo é zero.");
         }
 
-        // Para fins de teste vamos criar aqui mesmo, mas o correto seria no projeto
-        public static class Fibonacci
+        [TestMethod]
+        public void SegundoElementoDeveSerUm()
         {
-            public static int ObterElemento(int posicao)
-            {
-                return 0;
-            }
+            var resultado = Fibonacci.ObterElemento(1);
+            Assert.AreEqual(resultado, 1, "Valor náo é um.");
+        }
+
+        [TestMethod]
+        public void SextoElementoDeveSerCinco()
+        {
+            var resultado = Fibonacci.ObterElemento(5);
+            Assert.AreEqual(resultado, 5, "Valor náo é cinco.");
+        }
+
+        [TestMethod]
+        public void NonoElementoDeveSer34()
+        {
+            var resultado = Fibonacci.ObterElemento(9);
+            Assert.AreEqual(resultado, 34, "Valor náo é 34.");
+        }
+    }
+
+    // Para fins de teste vamos criar aqui mesmo, mas o correto seria no projeto
+    public static class Fibonacci
+    {
+        public static int ObterElemento(int posicao)
+        {
+            if (posicao < 0) throw new Exception("Posição não pode ser menor que zero.");
+            if (posicao < 2) return posicao;
+            return ObterElemento(posicao - 1) + ObterElemento(posicao - 2);
         }
     }
 }
